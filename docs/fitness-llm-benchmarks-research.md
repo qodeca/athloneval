@@ -58,6 +58,6 @@ This report synthesises findings from ~45 web searches and ~20 targeted paper an
 
 - **Version**: 2 (Part I written first, Part II added 2026-04-11 in the same session)
 - **Last updated**: 2026-04-11
-- **Repository state at time of writing**: pre-implementation; only this report and `CLAUDE.md` exist. See [`../CLAUDE.md`](../CLAUDE.md) for how future work should start.
+- **Repository state**: pre-implementation. Beyond this report, the repo contains [`../README.md`](../README.md) (public landing page), [`../CLAUDE.md`](../CLAUDE.md) (Claude Code working notes), [`../LICENSE`](../LICENSE) (MIT), and `.gitignore`. The repo is public at [github.com/qodeca/athloneval](https://github.com/qodeca/athloneval). See `CLAUDE.md` for how future work should start.
 - **Business metrics and vendor claims** drawn from trade press and vendor-published materials – treat them as directional rather than audited.
 - **Academic numerical claims** (model scores, dataset sizes) verified against arXiv abstracts; spot-check original PDFs before citing externally.

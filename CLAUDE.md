@@ -4,11 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Current status: pre-implementation (research phase)
 
-**There is no code in this repository yet.** As of 2026-04-11, the project contains only the research report and this file. The report lives in `docs/` and is split into three files to stay under the 500-line-per-file convention:
+**There is no code in this repository yet.** As of 2026-04-11, the repository contains the three-file research report under `docs/`, this file, plus root-level `README.md` (public landing page), `LICENSE` (MIT), and `.gitignore`. The report is split into three files to stay under the 500-line-per-file convention:
 
 - [`docs/fitness-llm-benchmarks-research.md`](docs/fitness-llm-benchmarks-research.md) — landing page, executive summary, methodology, TL;DR, navigation to the two parts
 - [`docs/research/part-1-literature-survey.md`](docs/research/part-1-literature-survey.md) — academic benchmarks and studies (SportQA, SPORTU, SportR, Health-LLM, PH-LLM, HealthSLM-Bench, PHIA, NutriBench, SportsGPT, BiomechGPT, the 2025 JMIR scoping reviews, hypertrophy/marathon studies, gap analysis, academic design recommendations, reference list)
 - [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md) — fitness industry framing (Qodeca context, operator archetypes, platform layer, AI-native vendors, 12 real-world LLM workflows, industry gaps, Athlon Eval seven-track proposal, positioning options, risks)
+
+### Repository metadata
+
+- **Licence**: MIT ([`LICENSE`](LICENSE)) — applies to everything currently in this repo
+- **Visibility**: public on GitHub as [`qodeca/athloneval`](https://github.com/qodeca/athloneval); commits are world-readable
+- **Homepage**: [athloneval.ai](https://athloneval.ai)
+- **Scope boundary**: this repo is the open core. Proprietary extensions (Tracks B, C, E, G per Part II Chapter 16) are developed outside this repo inside Qodeca delivery engagements
 
 Any implementation work begins by reading **Part II chapters 15–16** for the proposal and then **Part I part 5** (the JMIR scoping reviews) for the motivation.
 
@@ -105,4 +112,4 @@ Until code exists, almost all work is document work:
 - Do not scaffold a package without the user explicitly choosing a language/framework. The report does not mandate one.
 - Do not treat any of the "recommended" items in the research report as decided. The user framed them as options to discuss, not decisions. When in doubt, ask.
 - Do not expand Athlon Eval beyond Stage 1 scope in code until Stage 1 is shipped and being used by at least one reader of the leaderboard.
-- Do not add build/CI/tooling files preemptively — the user may prefer a different stack than you'd guess.
+- Do not add build/CI/framework-specific tooling preemptively — the user may prefer a different stack than you'd guess. (Hygiene files like `.gitignore`, `LICENSE`, and `README.md` are fine when the user explicitly requests them, which they already have.)
