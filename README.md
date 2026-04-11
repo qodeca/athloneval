@@ -76,7 +76,7 @@ For Claude Code working notes on navigating this repo, see [`CLAUDE.md`](CLAUDE.
 
 ## Licence
 
-Not yet chosen. The open-core positioning documented in Part II Chapter 16 will drive a permissive licence (likely MIT or Apache-2.0) for the public tracks A, D, and F. The proprietary tracks will remain closed under Qodeca's delivery engagements.
+MIT — see [LICENSE](LICENSE). This repository contains the public research and planning artefacts for Athlon Eval, released under a permissive licence in line with the open-core positioning in Part II Chapter 16. Any proprietary track extensions (B, C, E, G) will be developed as separate artefacts inside Qodeca delivery engagements, outside this repository.
 
 ## Contact
 
