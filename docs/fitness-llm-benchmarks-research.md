@@ -8,14 +8,15 @@
 
 ## How this report is organised
 
-The report is split across two parts, each self-contained but cross-referenced:
+The report is split across three parts, each self-contained but cross-referenced:
 
 | Part | File | What it covers |
 |---|---|---|
 | **Part I – Academic literature survey** | [`research/part-1-literature-survey.md`](research/part-1-literature-survey.md) | SportQA, SPORTU, SportR, Health-LLM, PH-LLM, HealthSLM-Bench, PHIA, NutriBench, SportsGPT, BiomechGPT, the two 2025 JMIR scoping reviews, hypertrophy/marathon expert studies, commercial coach products, gap analysis, academic-only design recommendations, and a 40-entry reference list. |
 | **Part II – The fitness industry angle** | [`research/part-2-industry-frame.md`](research/part-2-industry-frame.md) | Qodeca company context, fitness-operator archetypes, platform layer (Technogym / Mindbody / ABC Glofox / Keepme / eGym), AI-native challenger vendors, 12 real-world LLM workflows at chains today, industry-specific evaluation gaps, cross-cutting requirements (GDPR/HIPAA, multilingual, brand voice, latency), the Athlon Eval seven-track proposal, strategic positioning options, next steps, risks, and an extended reference list. |
+| **Part III – LLM benchmark design methodology** | [`research/part-3-benchmark-design-methodology.md`](research/part-3-benchmark-design-methodology.md) | The methodological backbone for Athlon Eval. Eight-stage benchmark lifecycle, item authoring protocols, inter-annotator agreement targets, evaluation metrics (closed-form + LLM-as-judge + Bradley-Terry), statistical rigor (Miller 2024, Bowyer 2025), contamination resistance, tooling landscape (lm-eval-harness, HELM, Inspect AI, DeepEval, Promptfoo, RAGAS), governance (datasheets, model cards, eval cards), lessons from medical/legal/multilingual/safety benchmarks, and a concrete 90-day Stage-1 build plan for Tracks A, D, F. |
 
-Most readers should start with the executive summary below, then jump to the part relevant to their question.
+Most readers should start with the executive summary below, then jump to the part relevant to their question. Builders should jump straight to Part III §29.
 
 ---
 
@@ -56,8 +57,9 @@ This report synthesises findings from ~45 web searches and ~20 targeted paper an
 
 ## Report status
 
-- **Version**: 2 (Part I written first, Part II added 2026-04-11 in the same session)
+- **Version**: 3 (Part I and Part II written 2026-04-11; Part III added 2026-04-11 in a follow-up session and fact-checked the same day)
 - **Last updated**: 2026-04-11
 - **Repository state**: pre-implementation. Beyond this report, the repo contains [`../README.md`](../README.md) (public landing page), [`../CLAUDE.md`](../CLAUDE.md) (Claude Code working notes), [`../LICENSE`](../LICENSE) (MIT), and `.gitignore`. The repo is public at [github.com/qodeca/athloneval](https://github.com/qodeca/athloneval). See `CLAUDE.md` for how future work should start.
 - **Business metrics and vendor claims** drawn from trade press and vendor-published materials – treat them as directional rather than audited.
-- **Academic numerical claims** (model scores, dataset sizes) verified against arXiv abstracts; spot-check original PDFs before citing externally.
+- **Academic numerical claims** (model scores, dataset sizes) verified against arXiv abstracts; spot-check original PDFs before citing externally. Part III went through a dedicated fact-check pass on 2026-04-11; claims are tagged inline as `[verified]` or `[inferred]`.
+- **Part III file length**: 807 lines, deliberately exceeding the project's normal 500-line cap. As the methodology reference doc, splitting it would damage cohesion. Treat this as a single-file exception, not a precedent.

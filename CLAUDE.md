@@ -4,11 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Current status: pre-implementation (research phase)
 
-**There is no code in this repository yet.** As of 2026-04-11, the repository contains the three-file research report under `docs/`, this file, plus root-level `README.md` (public landing page), `LICENSE` (MIT), and `.gitignore`. The report is split into three files to stay under the 500-line-per-file convention:
+**There is no code in this repository yet.** As of 2026-04-11, the repository contains the four-file research report under `docs/`, this file, plus root-level `README.md` (public landing page), `LICENSE` (MIT), and `.gitignore`. The report is split into a landing page and three numbered parts:
 
-- [`docs/fitness-llm-benchmarks-research.md`](docs/fitness-llm-benchmarks-research.md) — landing page, executive summary, methodology, TL;DR, navigation to the two parts
+- [`docs/fitness-llm-benchmarks-research.md`](docs/fitness-llm-benchmarks-research.md) — landing page, executive summary, methodology, TL;DR, navigation to the three parts
 - [`docs/research/part-1-literature-survey.md`](docs/research/part-1-literature-survey.md) — academic benchmarks and studies (SportQA, SPORTU, SportR, Health-LLM, PH-LLM, HealthSLM-Bench, PHIA, NutriBench, SportsGPT, BiomechGPT, the 2025 JMIR scoping reviews, hypertrophy/marathon studies, gap analysis, academic design recommendations, reference list)
 - [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md) — fitness industry framing (Qodeca context, operator archetypes, platform layer, AI-native vendors, 12 real-world LLM workflows, industry gaps, Athlon Eval seven-track proposal, positioning options, risks)
+- [`docs/research/part-3-benchmark-design-methodology.md`](docs/research/part-3-benchmark-design-methodology.md) — LLM benchmark design methodology backbone (eight-stage lifecycle, item authoring protocols, IAA targets, evaluation metrics, statistical rigor, contamination resistance, tooling landscape, governance, adjacent-domain lessons, and a concrete 90-day Stage-1 build plan for Tracks A, D, F). **This is the file a future implementer should read end-to-end before writing any code.**
 
 ### Repository metadata
 
@@ -17,7 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Homepage**: [athloneval.ai](https://athloneval.ai)
 - **Scope boundary**: this repo is the open core. Proprietary extensions (Tracks B, C, E, G per Part II Chapter 16) are developed outside this repo inside Qodeca delivery engagements
 
-Any implementation work begins by reading **Part II chapters 15–16** for the proposal and then **Part I part 5** (the JMIR scoping reviews) for the motivation.
+Any implementation work begins by reading **Part II chapters 15–16** for the proposal, then **Part I part 5** (the JMIR scoping reviews) for the motivation, then **Part III chapters 22 and 29** for the lifecycle and the build plan. The shortest path to "I can start coding" is Part III chapter 29 – it contains the Stage-1 implementation blueprint with construction recipes, cost estimates, recommended tooling stack, and a 90-day plan.
 
 There is intentionally **no build system, test runner, lint config, package manifest, or Makefile**. Do not invent or scaffold one without the user's explicit direction — the architecture choice (Python vs. TypeScript, monorepo vs. single package, evaluation framework) has not been made and is a load-bearing decision that should be taken deliberately.
 
@@ -81,6 +82,16 @@ When reasoning about the benchmark design, these are the load-bearing academic r
 - **NutriBench** (2024, Part I §3.1) — adjacent, mature. The "When LLMs Can't Help" follow-up (arXiv:2511.20652) is the cautionary tale: intrinsic benchmark wins did not transfer to real-world deployment. Athlon Eval must plan for Stage-3 longitudinal validation.
 - **BiomechGPT** (Part I §3.3) and **SportsGPT** (Part I §1.4) — the direction Stage-4 extensions would take.
 
+When reasoning about *how* to build the benchmark (rather than what is in scope), the load-bearing references live in Part III's reference list at [`docs/research/part-3-benchmark-design-methodology.md`](docs/research/part-3-benchmark-design-methodology.md):
+
+- **HELM** (Liang et al. 2022, arXiv:2211.09110, Part III §26.3) — the 7-metric × 16-scenario reporting taxonomy that every Athlon Eval track should publish.
+- **Miller "Adding Error Bars to Evals"** (arXiv:2411.00640, Part III §25.2) — the canonical recipe for confidence intervals when sample size is in the thousands.
+- **Bowyer et al. "Don't Use the CLT in LLM Evals"** (arXiv:2503.01747, ICML 2025 spotlight, Part III §25.1) — for Athlon Eval Tracks D and F (~150–500 items per language) the CLT under-estimates uncertainty; use Bayesian credible intervals.
+- **MT-Bench / LLM-as-a-judge** (Zheng et al., arXiv:2306.05685, Part III §24.3-24.4) — the original LLM-as-judge paper; sets the bias mitigation requirements (position, verbosity, self-preference).
+- **Inspect AI** (UK AISI, Part III §26.4) — the recommended primary runtime for Athlon Eval Tracks D and F.
+- **LiveCodeBench** (arXiv:2403.07974, Part III §28.5) — the time-segmented, contamination-resistant pattern that Athlon Eval should adopt.
+- **HarmBench + AgentHarm** (arXiv:2402.04249, arXiv:2410.09024, Part III §28.4) — harmful + benign prompt pairing, the structural pattern Track F must adopt.
+
 ## Industry context you should not forget
 
 The benchmark is being designed against actual deployed systems, not hypothetical ones. Part II §12.2 has the full platform layer map; Part II §13 has the 12 workflows. Quick recall:
@@ -101,8 +112,10 @@ Until code exists, almost all work is document work:
    - Landing page / exec summary / TL;DR → [`docs/fitness-llm-benchmarks-research.md`](docs/fitness-llm-benchmarks-research.md)
    - Academic benchmarks / papers / literature → [`docs/research/part-1-literature-survey.md`](docs/research/part-1-literature-survey.md)
    - Industry frame / Qodeca context / Athlon Eval proposal → [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md)
-   - Numbered sections (Parts 1–10 / Chapters 11–19) are load-bearing — add new material as new sections rather than rewriting existing ones.
-   - All docs files must stay under 500 lines; split to a new file in `docs/research/` if a file would exceed that.
+   - Benchmark design methodology / tooling / statistical rigor / Stage-1 build plan → [`docs/research/part-3-benchmark-design-methodology.md`](docs/research/part-3-benchmark-design-methodology.md)
+   - Numbered sections (Parts 1–10 in Part I / Chapters 11–19 in Part II / Chapters 20–30 in Part III) are load-bearing — add new material as new sections rather than rewriting existing ones.
+   - **Default file length**: docs files stay under 500 lines and split when they would exceed that.
+   - **Exception**: Part III is intentionally up to ~1000 lines (currently 807) as the single methodology reference and is exempt from the split rule. Do not split it without explicit user direction — splitting would damage the cohesion that makes it useful as an end-to-end reference.
 2. **Sources** — every factual claim is either directly verified from a paper/site or triangulated across ≥2 independent sources. Maintain that standard. Flag inferred vs. verified claims explicitly (global rule: "Verified: I read this in [X]" vs. "Inferred: Based on [Y]").
 3. **Numerical precision** — the report's one acknowledged weakness is that some numbers come from web-fetched HTML abstracts rather than PDFs. If you're about to cite a number externally, spot-check it against the original PDF first.
 4. **When you start writing code** — the user's global CLAUDE.md rules apply: branches not worktrees, Conventional Commits, `AskUserQuestion` for any clarifying decisions, sentence case (not Title Case), en dashes (not em dashes), responses ≤100 words unless the task is a multi-part deliverable.

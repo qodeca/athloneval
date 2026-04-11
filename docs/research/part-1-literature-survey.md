@@ -1,6 +1,6 @@
 # Part I – Academic literature survey
 
-*Part 1 of 2 of the fitness LLM benchmarks research report. Landing page and executive summary live in [`../fitness-llm-benchmarks-research.md`](../fitness-llm-benchmarks-research.md). The industry-frame counterpart is [`part-2-industry-frame.md`](part-2-industry-frame.md).*
+*Part 1 of 3 of the fitness LLM benchmarks research report. Landing page and executive summary live in [`../fitness-llm-benchmarks-research.md`](../fitness-llm-benchmarks-research.md). The industry-frame counterpart is [`part-2-industry-frame.md`](part-2-industry-frame.md). The methodology backbone for the proposed benchmark is [`part-3-benchmark-design-methodology.md`](part-3-benchmark-design-methodology.md).*
 
 *This part surveys the peer-reviewed and preprint literature on LLM benchmarks relevant to fitness, sports, exercise, wearables, nutrition, physiotherapy, and biomechanics, and synthesises the gaps a new benchmark could fill. Compiled 2026-04-11 from ~30 web searches and ~15 paper fetches.*
 

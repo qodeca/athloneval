@@ -71,6 +71,7 @@ All substantive content is in [`docs/`](docs/):
 - **[Landing page & executive summary](docs/fitness-llm-benchmarks-research.md)** — start here
 - **[Part I — Academic literature survey](docs/research/part-1-literature-survey.md)** — SportQA, PH-LLM, Health-LLM, JMIR scoping reviews, NutriBench, BiomechGPT, and the ~40-entry reference list
 - **[Part II — Fitness industry frame](docs/research/part-2-industry-frame.md)** — Qodeca context, chain operator tiers, platform layer, real-world LLM workflows, seven-track proposal, positioning options, risks
+- **[Part III — LLM benchmark design methodology](docs/research/part-3-benchmark-design-methodology.md)** — eight-stage benchmark lifecycle, item authoring, evaluation metrics, statistical rigor (Miller 2024 / Bowyer 2025), contamination resistance, tooling landscape (lm-eval-harness, HELM, Inspect AI, DeepEval, Promptfoo, RAGAS), governance, lessons from adjacent domains, and a 90-day Stage-1 build plan for Tracks A, D, F
 
 For Claude Code working notes on navigating this repo, see [`CLAUDE.md`](CLAUDE.md).
 

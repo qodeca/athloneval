@@ -1,6 +1,6 @@
 # Part II – The fitness industry angle
 
-*Part 2 of 2 of the fitness LLM benchmarks research report. Landing page and executive summary live in [`../fitness-llm-benchmarks-research.md`](../fitness-llm-benchmarks-research.md). The academic literature survey that precedes this part is [`part-1-literature-survey.md`](part-1-literature-survey.md).*
+*Part 2 of 3 of the fitness LLM benchmarks research report. Landing page and executive summary live in [`../fitness-llm-benchmarks-research.md`](../fitness-llm-benchmarks-research.md). The academic literature survey that precedes this part is [`part-1-literature-survey.md`](part-1-literature-survey.md). The methodology backbone for the proposed benchmark is [`part-3-benchmark-design-methodology.md`](part-3-benchmark-design-methodology.md).*
 
 *This extension reframes the report around the fitness industry itself – chains, vendors, members, and operators – rather than purely academic research. It is written with Qodeca's business context in mind: a Warsaw-based software house that designs and ships digital products for fitness, sport, and healthcare operators, and that is in a position to either adopt, extend, or create a benchmark as a delivery asset.*
 
