@@ -77,13 +77,13 @@ The newest entry in the sports-MLLM line. Unique contribution: multi-step CoT an
 
 SportsGPT is more an architecture than a benchmark, but it bundles its own evaluation on **standing long jump** and **100m sprint phases** (Start, Acceleration, Mid, Late). Scored on a 1–5 Likert scale across Accuracy, Comprehensiveness, Professionalism, and Feasibility. Reported scores: 3.80/5 Accuracy vs. 3.00/5 for Claude 4.5 Opus, demonstrating that a domain-specialised RAG stack beats frontier general models on technical motion analysis.
 
-**Why this matters for fitbench**: it's currently the most ambitious sports-coaching-specific evaluation rubric in the literature, even if the task space is narrow.
+**Why this matters for Athlon Eval**: it's currently the most ambitious sports-coaching-specific evaluation rubric in the literature, even if the task space is narrow.
 
 ---
 
 ### 1.5 LLM-SPTRec (Nature Scientific Reports, 2026) – personalised training plans with knowledge graphs
 
-A recent knowledge-graph-augmented LLM framework for personalised sports training plans. Combines multi-source heterogeneous user data with domain knowledge graphs. Surpasses collaborative filtering, sequential models, and general-purpose LLMs on plan coherence, goal relevance, and predicted user satisfaction. **Not a public benchmark, but a closely-related evaluation methodology that fitbench could adopt or extend.**
+A recent knowledge-graph-augmented LLM framework for personalised sports training plans. Combines multi-source heterogeneous user data with domain knowledge graphs. Surpasses collaborative filtering, sequential models, and general-purpose LLMs on plan coherence, goal relevance, and predicted user satisfaction. **Not a public benchmark, but a closely-related evaluation methodology that Athlon Eval could adopt or extend.**
 
 ---
 
@@ -123,7 +123,7 @@ PH-LLM is the most ambitious fitness-specific LLM evaluation to date. Three benc
 - **Sleep MCQ exam: PH-LLM 79% vs. human experts 76%** (parity)
 - On the 857 open-ended case studies, PH-LLM achieved parity with human experts on fitness-related tasks and improved over base Gemini on sleep insights
 
-**Why this matters for fitbench**:
+**Why this matters for Athlon Eval**:
 - This is the first peer-reviewed evidence that a fine-tuned LLM can match human experts on a fitness knowledge exam
 - But it uses Google-internal Fitbit data that isn't publicly reproducible – **there is no open version of this benchmark**
 - A Nature Medicine follow-up in 2026 ("Improving AI coaching with Gemini using real-world Fitbit data") extends the work
@@ -161,7 +161,7 @@ PHIA combines multi-step reasoning with **code generation** and information retr
 | **FoodSky** | Chinese National Chef + Dietetic exams | 83.3% and 91.2% accuracy, beating general LLMs |
 | **"When LLMs Can't Help"** (arXiv:2511.20652) | Real-world nutrition deployment study | Intrinsic eval wins *did not* transfer to real-world dietary adherence or engagement |
 
-**Takeaway for fitbench**: The nutrition-benchmark space is 1–2 years ahead of fitness. It has: large public datasets, domain-specialised fine-tuned models that beat frontier LLMs, and published work showing intrinsic benchmarks don't predict real-world outcomes. fitbench should borrow all three patterns.
+**Takeaway for Athlon Eval**: The nutrition-benchmark space is 1–2 years ahead of fitness. It has: large public datasets, domain-specialised fine-tuned models that beat frontier LLMs, and published work showing intrinsic benchmarks don't predict real-world outcomes. Athlon Eval should borrow all three patterns.
 
 ---
 
@@ -186,7 +186,7 @@ No public benchmark exists here – all work is small-scale comparison studies.
 | **MotionBench** (CVPR 2025, arXiv:2501.02955) | General video motion understanding, not sports-specific |
 | **MoVid-Bench** | Body-part motion awareness, sequential analysis, direction awareness |
 
-BiomechGPT is the most relevant here because it bridges motion capture data with natural language reasoning – a direction fitbench may want to cover.
+BiomechGPT is the most relevant here because it bridges motion capture data with natural language reasoning – a direction Athlon Eval may want to cover.
 
 ---
 
@@ -223,7 +223,7 @@ Two 2025 scoping reviews in JMIR are the most important meta-level work. Both ex
 
 ### 5.1 "Evaluation Strategies for LLM-Based Models in Exercise and Health Coaching: Scoping Review"
 
-**Citation**: JMIR 2025;27:e79217 (PMC12520646) – **the single most important paper for fitbench to read in full**.
+**Citation**: JMIR 2025;27:e79217 (PMC12520646) – **the single most important paper for Athlon Eval to read in full**.
 
 **Findings**:
 - Reviewed **20 peer-reviewed studies** from March 2023 to July 2025
@@ -253,7 +253,7 @@ Two 2025 scoping reviews in JMIR are the most important meta-level work. Both ex
 
 **Concludes**: "Developing benchmarking frameworks to systematically evaluate LLM-generated exercise recommendations will be essential for ensuring accuracy, safety, and adaptability."
 
-This is essentially a formal call-to-arms for what `fitbench` could be.
+This is essentially a formal call-to-arms for what `athlon-eval` could be.
 
 ### 5.3 Foundational paper
 
@@ -312,9 +312,9 @@ Collating what the literature collectively demonstrates is *missing*:
 | Physiotherapy clinical reasoning | Scattered small studies | Weak, no benchmark |
 | Biomechanical motion assessment | BiomechGPT, SportsGPT | Early-stage, narrow task space |
 
-### 8.2 What's missing – the fitbench opportunity
+### 8.2 What's missing – the opportunity Athlon Eval could own
 
-No public benchmark currently evaluates any of the following. Each is a plausible track for fitbench:
+No public benchmark currently evaluates any of the following. Each is a plausible track for Athlon Eval:
 
 1. **End-to-end periodised program generation**
    - Input: user goal (e.g., 5k PB, 100kg bench, physique), demographics, equipment, constraints, history
@@ -348,13 +348,13 @@ No public benchmark currently evaluates any of the following. Each is a plausibl
 
 8. **Real-world outcome correlation**
    - NutriBench's "When LLMs Can't Help" paper is a warning: intrinsic benchmarks don't predict real-world adherence
-   - fitbench should eventually include or partner with an RCT-style outcome track
+   - Athlon Eval should eventually include or partner with an RCT-style outcome track
 
 ---
 
-## Part 9 – Design recommendations for fitbench
+## Part 9 – Design recommendations for Athlon Eval
 
-Based on everything above, here's a first cut at what fitbench could be. **These are opinions framed as options, not a decided plan – redirect freely.** These recommendations are superseded and extended by the industry-frame proposal in [`part-2-industry-frame.md`](part-2-industry-frame.md) Chapter 15.
+Based on everything above, here's a first cut at what Athlon Eval could be. **These are opinions framed as options, not a decided plan – redirect freely.** These recommendations are superseded and extended by the industry-frame proposal in [`part-2-industry-frame.md`](part-2-industry-frame.md) Chapter 15.
 
 ### 9.1 Suggested scope (MVP)
 
@@ -482,4 +482,4 @@ Drawn directly from the JMIR scoping review's recommendations:
 
 ---
 
-*End of Part I. Continue to [Part II – The fitness industry angle](part-2-industry-frame.md) for the B2B framing, Qodeca context, and fitbench v2 proposal.*
+*End of Part I. Continue to [Part II – The fitness industry angle](part-2-industry-frame.md) for the B2B framing, Qodeca context, and Athlon Eval proposal.*

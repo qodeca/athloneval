@@ -23,7 +23,7 @@ Known (publicly referenced) clients include:
 - **Pro Club**, **Gloveworx** – boutique / destination clubs
 - **MedSimples** – healthcare staff management
 
-That client list is unusually aligned with the questions this report explores. Qodeca isn't a generic software house that happens to have a fitness case study – it *delivers into* the exact operators who would pilot LLM features and who need a way to evaluate them before adopting. A well-scoped fitbench would function on at least four layers for Qodeca:
+That client list is unusually aligned with the questions this report explores. Qodeca isn't a generic software house that happens to have a fitness case study – it *delivers into* the exact operators who would pilot LLM features and who need a way to evaluate them before adopting. A well-scoped Athlon Eval would function on at least four layers for Qodeca:
 
 1. **Pre-sales asset** – "we have built and published the industry's reference benchmark for LLM-based fitness coaching; here's how your vendor's model scores on it."
 2. **Vendor-selection tool** – per client, pick between GPT-4o / Claude / Gemini / open-weight alternatives based on measured task performance, not marketing.
@@ -49,7 +49,7 @@ The global health-and-fitness industry is currently served by roughly six operat
 | **Corporate and hospital wellness** | Employer on-site gyms, insurance-funded programs, hospital fitness centres | Large population with health constraints | Medical-grade safety; benefit eligibility; regulatory compliance (HIPAA / GDPR); outcome tracking |
 | **Equipment-led ecosystems** | Technogym Mywellness, eGym, Life Fitness/Hammer Strength, Precor | Equipment-centric but increasingly platform-focused | Prescribing machine-specific programs; equipment-aware coaching; cross-device progression |
 
-Qodeca touches five of the six today. That breadth is important for benchmark design: any credible fitbench needs to produce scores that are *actionable for a buyer in each archetype*.
+Qodeca touches five of the six today. That breadth is important for benchmark design: any credible Athlon Eval needs to produce scores that are *actionable for a buyer in each archetype*.
 
 ### 12.2 The platform layer
 
@@ -65,7 +65,7 @@ Under the operators sits a smaller set of platforms that intermediate between me
 | **eGym** | Connected strength equipment + Fitness Hub | Body analysis, flexibility tests, training progress visualisation; less text-LLM so far |
 | **Club Automation** (Daxko) | Mid/large health-club ops | 2026 "AI-powered guide for growing fitness clubs" positioning |
 
-Two observations for fitbench:
+Two observations for Athlon Eval:
 - The operator layer is where **decisions** are made (what to buy, what to ship). The platform layer is where **LLMs actually execute**. A good benchmark serves both: vendors compete on scores, operators compare options.
 - None of the named platforms publishes a task-level quality benchmark. Most claim business-outcome metrics (retention %, revenue lift) without measurable model-quality evidence. That is a hole a public benchmark can fill.
 
@@ -107,7 +107,7 @@ Any benchmark track that cannot show a plausible linkage to one of these busines
 
 ## Chapter 13 – What fitness operators actually do with LLMs right now
 
-Synthesising the deployments found in this research, LLMs in fitness operators today cluster into nine concrete workflows. Each is a candidate fitbench track.
+Synthesising the deployments found in this research, LLMs in fitness operators today cluster into nine concrete workflows. Each is a candidate Athlon Eval track.
 
 ### 13.1 Member-facing workflows
 
@@ -164,7 +164,7 @@ Beyond individual tasks, the industry imposes constraints that academic benchmar
    - **HIPAA** for any US operator touching insurance-reimbursed members or corporate wellness
    - Generic OpenAI ChatGPT is **not** HIPAA-compliant out of the box; de-identification and Business Associate Agreements required
    - Models must support on-prem, private VPC, or controlled-environment deployment
-   - **Benchmark implication**: fitbench must be runnable on self-hosted and vendor-hosted models alike, and must include PII-leakage and prompt-injection-safety tracks
+   - **Benchmark implication**: Athlon Eval must be runnable on self-hosted and vendor-hosted models alike, and must include PII-leakage and prompt-injection-safety tracks
 
 2. **Brand-voice fidelity**
    - A low-cost chain and a luxury club both want an LLM "in their voice"
@@ -174,7 +174,7 @@ Beyond individual tasks, the industry imposes constraints that academic benchmar
 3. **Multilinguality**
    - Basic-Fit operates across the Netherlands, Belgium, France, Spain, Germany, Luxembourg; PureGym Arabia works in Arabic/English; Solinca in Portuguese; Zdrofit/Calypso in Polish
    - Most fitness LLM research is English-only
-   - **Benchmark implication**: fitbench should include at least EN, PL, ES, FR, DE, PT, AR language variants for core tasks
+   - **Benchmark implication**: Athlon Eval should include at least EN, PL, ES, FR, DE, PT, AR language variants for core tasks
 
 4. **Safety-critical escalation**
    - An LLM that says "chest pain is normal during cardio" must hard-route to a human
@@ -197,7 +197,7 @@ Beyond individual tasks, the industry imposes constraints that academic benchmar
 
 ---
 
-## Chapter 15 – Proposed fitbench v2 (industry-flavoured)
+## Chapter 15 – Designing Athlon Eval (industry-flavoured)
 
 Taking Part I's three-track academic proposal (Knowledge, Program Generation, Safety) and layering the industry requirements above gives a richer structure. **Still framed as a proposal for discussion – not a decided plan.**
 
@@ -263,7 +263,7 @@ Each track produces a numeric score plus sub-dimensions, in the style of HELM / 
 
 ---
 
-## Chapter 16 – Strategic positioning options for fitbench
+## Chapter 16 – Strategic positioning options for Athlon Eval
 
 Three distinct positioning choices to pick between. Each has different implications for scope, marketing, and IP.
 
@@ -293,7 +293,7 @@ Framed as options with tradeoffs rather than a decided sequence. Pick what reson
 1. **Talk to 3 existing clients (e.g., Bay Club, EōS, one EU chain) and ask**: "If we gave you a scorecard for LLM quality on a fitness-specific task your team runs, which task would you most want scored?" Their answer prioritises Stage-1 tracks.
 2. **Prototype Track A in one week** – draft 100 multilingual MCQs, run on 5 frontier + 5 open-weight models via a single Python script, publish the results as a Qodeca blog post. This costs ~€3k in compute + a few person-days and produces an immediate pre-sales asset.
 3. **Partner with a Polish university** (Warsaw Medical University, AWF Warszawa – the physical-ed academy) for expert panel credibility on Tracks B and F. Polish sports-science academia is strong and under-tapped for ML collaboration.
-4. **Talk to Keepme, ABC Glofox, Mindbody** about incorporating track scores into their vendor comparisons. Any of these adopting the leaderboard as a reference gives fitbench instant industry legitimacy.
+4. **Talk to Keepme, ABC Glofox, Mindbody** about incorporating track scores into their vendor comparisons. Any of these adopting the leaderboard as a reference gives Athlon Eval instant industry legitimacy.
 5. **Coordinate (don't compete) with academic benchmark authors** – the SportQA and SPORTU teams are approachable via their GitHub repos. A joint "fitness-operations extension to SportQA" paper would save duplicate work and accelerate acceptance.
 6. **Publish the Part I literature review** (what you're reading now) as a Qodeca white paper or Medium post. Regardless of whether you build the benchmark, it's already a solid piece of thought leadership.
 
@@ -303,10 +303,10 @@ Framed as options with tradeoffs rather than a decided sequence. Pick what reson
 
 A benchmark is not an obvious win. Things to watch:
 
-- **Benchmark hacking** – if fitbench gets traction, vendors will fine-tune to it, just like they fine-tune to MMLU. Mitigate by keeping part of the benchmark private and refreshing it annually.
+- **Benchmark hacking** – if Athlon Eval gets traction, vendors will fine-tune to it, just like they fine-tune to MMLU. Mitigate by keeping part of the benchmark private and refreshing it annually.
 - **Academic vs. commercial tension** – if Qodeca is perceived as running a benchmark to sell its own services, neutrality suffers. Mitigate by putting the public tracks under independent governance or clear CC-BY licensing.
 - **Expert time is expensive** – Tracks B and C need human graders. Underfunding the human side is the single most common cause of benchmark failure (JMIR scoping review data). Budget for it explicitly.
-- **Real-world-outcome validity risk** – NutriBench's "When LLMs Can't Help" paper showed intrinsic benchmark wins didn't transfer to real deployments. fitbench should commit to a Stage-3 longitudinal validation or be honest about its limits.
+- **Real-world-outcome validity risk** – NutriBench's "When LLMs Can't Help" paper showed intrinsic benchmark wins didn't transfer to real deployments. Athlon Eval should commit to a Stage-3 longitudinal validation or be honest about its limits.
 - **"This is a research project"** objection from clients – commercial buyers don't care about leaderboards unless they map to KPIs they are measured on. Every track score needs a one-line translation: "a 10-point Track E improvement ≈ X% retention-outreach reply-rate uplift in deployment." Without that mapping the benchmark is academic theatre.
 - **Moving target on models** – frontier models ship every 2–3 months. The leaderboard must be cheap to re-run. Script everything.
 - **Competition from Google / OpenAI** – if Google decides to open-source a PH-LLM-style fitness benchmark, Qodeca's window closes. Move fast; don't over-scope Stage 1.

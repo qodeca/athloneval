@@ -8,15 +8,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - [`docs/fitness-llm-benchmarks-research.md`](docs/fitness-llm-benchmarks-research.md) — landing page, executive summary, methodology, TL;DR, navigation to the two parts
 - [`docs/research/part-1-literature-survey.md`](docs/research/part-1-literature-survey.md) — academic benchmarks and studies (SportQA, SPORTU, SportR, Health-LLM, PH-LLM, HealthSLM-Bench, PHIA, NutriBench, SportsGPT, BiomechGPT, the 2025 JMIR scoping reviews, hypertrophy/marathon studies, gap analysis, academic design recommendations, reference list)
-- [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md) — fitness industry framing (Qodeca context, operator archetypes, platform layer, AI-native vendors, 12 real-world LLM workflows, industry gaps, fitbench v2 seven-track proposal, positioning options, risks)
+- [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md) — fitness industry framing (Qodeca context, operator archetypes, platform layer, AI-native vendors, 12 real-world LLM workflows, industry gaps, Athlon Eval seven-track proposal, positioning options, risks)
 
 Any implementation work begins by reading **Part II chapters 15–16** for the proposal and then **Part I part 5** (the JMIR scoping reviews) for the motivation.
 
 There is intentionally **no build system, test runner, lint config, package manifest, or Makefile**. Do not invent or scaffold one without the user's explicit direction — the architecture choice (Python vs. TypeScript, monorepo vs. single package, evaluation framework) has not been made and is a load-bearing decision that should be taken deliberately.
 
-## What fitbench is
+## What Athlon Eval is
 
-`fitbench` is a planned **evaluation benchmark for large language models on fitness, sports, and fitness-industry operational tasks**. It is being designed by Qodeca (Warsaw-based software house, specialising in digital products for fitness/sport/healthcare operators) as a dual-purpose artefact:
+`athlon-eval` is a planned **evaluation benchmark for large language models on fitness, sports, and fitness-industry operational tasks**. It is being designed by Qodeca (Warsaw-based software house, specialising in digital products for fitness/sport/healthcare operators) as a dual-purpose artefact:
 
 1. An **open, peer-reviewable benchmark** that fills a gap explicitly called out by the 2025 JMIR scoping reviews on LLM exercise coaching — no existing benchmark tests end-to-end coaching quality, retention outreach, member concierge, or safety escalation in the fitness domain.
 2. A **commercial delivery asset** for Qodeca — pre-sales differentiator, LLM vendor-selection tool for chain clients (Bay Club, EōS, PureGym Arabia, SC Fitness, Solinca, eGym, Jazzercise, ABC Glofox), and a delivery QA gate for Qodeca-built features.
@@ -70,8 +70,8 @@ When reasoning about the benchmark design, these are the load-bearing academic r
 
 - **SportQA** (NAACL 2024, Part I §1.1) — closest existing sports-language benchmark, MCQ construction pipeline worth borrowing for Track A
 - **PH-LLM** (Nature Medicine 2025, Part I §2.2) — Google's fitness/sleep LLM. Beat human experts 88% vs 71% on fitness MCQs but used closed Fitbit data. Its 857-case-study format is the template for Tracks B and C.
-- **JMIR scoping review e79217** (2025, Part I §5.1) — the meta paper that motivates fitbench; documents median Evaluation Rigor Score 2.5/5 across 20 studies and explicitly calls for a standardised benchmark. **Read this first if you're confused about why fitbench exists.**
-- **NutriBench** (2024, Part I §3.1) — adjacent, mature. The "When LLMs Can't Help" follow-up (arXiv:2511.20652) is the cautionary tale: intrinsic benchmark wins did not transfer to real-world deployment. fitbench must plan for Stage-3 longitudinal validation.
+- **JMIR scoping review e79217** (2025, Part I §5.1) — the meta paper that motivates Athlon Eval; documents median Evaluation Rigor Score 2.5/5 across 20 studies and explicitly calls for a standardised benchmark. **Read this first if you're confused about why Athlon Eval exists.**
+- **NutriBench** (2024, Part I §3.1) — adjacent, mature. The "When LLMs Can't Help" follow-up (arXiv:2511.20652) is the cautionary tale: intrinsic benchmark wins did not transfer to real-world deployment. Athlon Eval must plan for Stage-3 longitudinal validation.
 - **BiomechGPT** (Part I §3.3) and **SportsGPT** (Part I §1.4) — the direction Stage-4 extensions would take.
 
 ## Industry context you should not forget
@@ -84,7 +84,7 @@ The benchmark is being designed against actual deployed systems, not hypothetica
 - **GymNation + LlamaIndex** — Albus (web/WhatsApp) + Jenny (voice sales). Public case study: 87% conversation rate, 75% tour booking, shipped by 4 people
 - **Basic-Fit** — Speakap chatbot integration (employee-facing)
 
-Task definitions in fitbench must match these workflows closely enough that an operator can read a leaderboard row and know which platform to buy.
+Task definitions in Athlon Eval must match these workflows closely enough that an operator can read a leaderboard row and know which platform to buy.
 
 ## How to work in this repository
 
@@ -93,7 +93,7 @@ Until code exists, almost all work is document work:
 1. **Research/planning changes** — edit the correct file:
    - Landing page / exec summary / TL;DR → [`docs/fitness-llm-benchmarks-research.md`](docs/fitness-llm-benchmarks-research.md)
    - Academic benchmarks / papers / literature → [`docs/research/part-1-literature-survey.md`](docs/research/part-1-literature-survey.md)
-   - Industry frame / Qodeca context / fitbench proposal → [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md)
+   - Industry frame / Qodeca context / Athlon Eval proposal → [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md)
    - Numbered sections (Parts 1–10 / Chapters 11–19) are load-bearing — add new material as new sections rather than rewriting existing ones.
    - All docs files must stay under 500 lines; split to a new file in `docs/research/` if a file would exceed that.
 2. **Sources** — every factual claim is either directly verified from a paper/site or triangulated across ≥2 independent sources. Maintain that standard. Flag inferred vs. verified claims explicitly (global rule: "Verified: I read this in [X]" vs. "Inferred: Based on [Y]").
@@ -104,5 +104,5 @@ Until code exists, almost all work is document work:
 
 - Do not scaffold a package without the user explicitly choosing a language/framework. The report does not mandate one.
 - Do not treat any of the "recommended" items in the research report as decided. The user framed them as options to discuss, not decisions. When in doubt, ask.
-- Do not expand fitbench beyond Stage 1 scope in code until Stage 1 is shipped and being used by at least one reader of the leaderboard.
+- Do not expand Athlon Eval beyond Stage 1 scope in code until Stage 1 is shipped and being used by at least one reader of the leaderboard.
 - Do not add build/CI/tooling files preemptively — the user may prefer a different stack than you'd guess.
