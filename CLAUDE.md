@@ -2,14 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Current status: pre-implementation (research phase)
+## Current status: iteration 0 approved, engineering not yet started
 
-**There is no code in this repository yet.** As of 2026-04-11, the repository contains the four-file research report under `docs/`, this file, plus root-level `README.md` (public landing page), `LICENSE` (MIT), and `.gitignore`. The report is split into a landing page and three numbered parts:
+**There is no code in this repository yet.** As of 2026-04-17 the repository contains the four-file research report under `docs/research/` (frozen 2026-04-11), a lean operational launch plan under `docs/strategy/`, this file, plus root-level `README.md` (public landing page), `LICENSE` (MIT), and `.gitignore`.
+
+The **research report** (read-only unless adding new research findings; dated 2026-04-11):
 
 - [`docs/fitness-llm-benchmarks-research.md`](docs/fitness-llm-benchmarks-research.md) — landing page, executive summary, methodology, TL;DR, navigation to the three parts
 - [`docs/research/part-1-literature-survey.md`](docs/research/part-1-literature-survey.md) — academic benchmarks and studies (SportQA, SPORTU, SportR, Health-LLM, PH-LLM, HealthSLM-Bench, PHIA, NutriBench, SportsGPT, BiomechGPT, the 2025 JMIR scoping reviews, hypertrophy/marathon studies, gap analysis, academic design recommendations, reference list)
 - [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md) — fitness industry framing (Qodeca context, operator archetypes, platform layer, AI-native vendors, 12 real-world LLM workflows, industry gaps, Athlon Eval seven-track proposal, positioning options, risks)
-- [`docs/research/part-3-benchmark-design-methodology.md`](docs/research/part-3-benchmark-design-methodology.md) — LLM benchmark design methodology backbone (eight-stage lifecycle, item authoring protocols, IAA targets, evaluation metrics, statistical rigor, contamination resistance, tooling landscape, governance, adjacent-domain lessons, and a concrete 90-day Stage-1 build plan for Tracks A, D, F). **This is the file a future implementer should read end-to-end before writing any code.**
+- [`docs/research/part-3-benchmark-design-methodology.md`](docs/research/part-3-benchmark-design-methodology.md) — LLM benchmark design methodology backbone (eight-stage lifecycle, item authoring protocols, IAA targets, evaluation metrics, statistical rigor, contamination resistance, tooling landscape, governance, adjacent-domain lessons, and a concrete 90-day Stage-1 build plan for Tracks A, D, F). **The file a future implementer reads end-to-end for the long-horizon shape of the work.**
+
+The **operational plan** (actively evolving; the canonical "what do we do next" document):
+
+- [`docs/strategy/launch-plan.md`](docs/strategy/launch-plan.md) — lean iteration ladder (Iter 0 → 0.5 → 1 → 2 → 3 → scale), iteration-0 day-by-day checklist, SME reviewer specification (Appendix B), decision log (D1–D4 confirmed 2026-04-17). **This is where the next action lives.** It supersedes the "next steps" sketches in Part II §17 and Part III §29 by adding iteration gates, kill criteria, and a €1 K iter-0 scope.
 
 ### Repository metadata
 
@@ -18,9 +24,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Homepage**: [athloneval.ai](https://athloneval.ai)
 - **Scope boundary**: this repo is the open core. Proprietary extensions (Tracks B, C, E, G per Part II Chapter 16) are developed outside this repo inside Qodeca delivery engagements
 
-Any implementation work begins by reading **Part II chapters 15–16** for the proposal, then **Part I part 5** (the JMIR scoping reviews) for the motivation, then **Part III chapters 22 and 29** for the lifecycle and the build plan. The shortest path to "I can start coding" is Part III chapter 29 – it contains the Stage-1 implementation blueprint with construction recipes, cost estimates, recommended tooling stack, and a 90-day plan.
+Any implementation work begins by reading **[`docs/strategy/launch-plan.md`](docs/strategy/launch-plan.md)** end-to-end – that is the current operational scope. For deeper background, then read Part II chapters 15–16 (the seven-track proposal), Part I part 5 (the JMIR scoping reviews that motivate the project), and Part III chapters 22 and 29 (benchmark lifecycle and the long-horizon 90-day Stage-1 plan that iteration 3+ grows into).
 
-There is intentionally **no build system, test runner, lint config, package manifest, or Makefile**. Do not invent or scaffold one without the user's explicit direction — the architecture choice (Python vs. TypeScript, monorepo vs. single package, evaluation framework) has not been made and is a load-bearing decision that should be taken deliberately.
+There is **no build system, test runner, lint config, package manifest, or Makefile yet**. Iteration-0 scaffolding is scoped and approved in the launch plan (D3, 2026-04-17) – a minimal Python 3.11+ package with `pyproject.toml`, `ruff`, `pytest`, an OpenRouter-driven eval script, and a plain-HTML landing page served via GitHub Pages. That is the full extent of the green light. **Do not exceed iteration-0 scope without explicit direction**: larger stack decisions (Inspect AI, monorepo layout, multilingual harness, judge ensembles, contamination tooling) are deferred to iteration 1+ and remain load-bearing choices to be made deliberately when the traction signal justifies them.
 
 ## What Athlon Eval is
 
@@ -72,6 +78,19 @@ This mirrors how MLPerf, HELM, and DeepEval manage the academic/commercial bound
 
 **Work on Stage 1 scope first.** Don't build Stage 2+ tracks until Stage 1 is shipped and being used.
 
+## Operational status (iteration 0 active)
+
+The launch plan at [`docs/strategy/launch-plan.md`](docs/strategy/launch-plan.md) is the canonical tracker for iteration state. Current snapshot as of 2026-04-17:
+
+- **Iteration 0 – beachhead**: approved, not yet started. 2-week traction test targeting 20 EN Track A MCQs × 5 models + static leaderboard + Qodeca blog + LinkedIn launch + 15 cold outreach emails. Day-14 scorecard decides iter-1 go/no-go.
+- **Engineer**: Claude (Opus 4.7 via Claude Code) – all iter-0 engineering work runs through this agent per D3.
+- **Budget**: ≤€1 K cash ceiling (expected spend €500–750) per D1.
+- **Domain**: [athloneval.ai](https://athloneval.ai) purchased per D2.
+- **SME reviewer**: selection pending against the specification in Appendix B of the launch plan per D4.
+- **Kill criteria for iter-0**: pre-registered thresholds in launch-plan.md §3. If iter 0 fails the scorecard, we pause the programme and keep the research report as standalone thought leadership.
+
+Beyond iteration 0 everything is explicitly deferred. Do not bring advisory board, academic co-authorship, multilingual scope, Tracks B/C/E/G, or paper-venue discussions into iter-0 work.
+
 ## Key references embedded in the research report
 
 When reasoning about the benchmark design, these are the load-bearing academic references. Each lives in Part I at the section shown — read that section in [`docs/research/part-1-literature-survey.md`](docs/research/part-1-literature-survey.md) before consulting the external paper:
@@ -113,6 +132,7 @@ Until code exists, almost all work is document work:
    - Academic benchmarks / papers / literature → [`docs/research/part-1-literature-survey.md`](docs/research/part-1-literature-survey.md)
    - Industry frame / Qodeca context / Athlon Eval proposal → [`docs/research/part-2-industry-frame.md`](docs/research/part-2-industry-frame.md)
    - Benchmark design methodology / tooling / statistical rigor / Stage-1 build plan → [`docs/research/part-3-benchmark-design-methodology.md`](docs/research/part-3-benchmark-design-methodology.md)
+   - Operational plan / iteration status / iteration-0 checklist / SME spec / decisions log → [`docs/strategy/launch-plan.md`](docs/strategy/launch-plan.md)
    - Numbered sections (Parts 1–10 in Part I / Chapters 11–19 in Part II / Chapters 20–30 in Part III) are load-bearing — add new material as new sections rather than rewriting existing ones.
    - **Default file length**: docs files stay under 500 lines and split when they would exceed that.
    - **Exception**: Part III is intentionally up to ~1000 lines (currently 807) as the single methodology reference and is exempt from the split rule. Do not split it without explicit user direction — splitting would damage the cohesion that makes it useful as an end-to-end reference.
@@ -122,7 +142,7 @@ Until code exists, almost all work is document work:
 
 ## Do not
 
-- Do not scaffold a package without the user explicitly choosing a language/framework. The report does not mandate one.
-- Do not treat any of the "recommended" items in the research report as decided. The user framed them as options to discuss, not decisions. When in doubt, ask.
+- Do not scaffold beyond iteration-0 scope. The iter-0 stack (Python 3.11+ with `pyproject.toml`, `ruff`, `pytest`, an OpenRouter eval script, plain-HTML landing page, GitHub Pages, GitHub Actions CI) is green-lit per D3 in the launch plan. Anything else — Inspect AI, monorepo split, multilingual harness, judge ensembles, contamination harness, framework-heavy front-ends — waits for iter-1 discussion.
+- Do not treat recommendations in the research report (Part II chapters 15–16, Part III chapter 29) as decided commitments. They are options. The operational decisions live in [`docs/strategy/launch-plan.md`](docs/strategy/launch-plan.md) §9. When in doubt, ask.
 - Do not expand Athlon Eval beyond Stage 1 scope in code until Stage 1 is shipped and being used by at least one reader of the leaderboard.
-- Do not add build/CI/framework-specific tooling preemptively — the user may prefer a different stack than you'd guess. (Hygiene files like `.gitignore`, `LICENSE`, and `README.md` are fine when the user explicitly requests them, which they already have.)
+- Do not bring iteration 2+ activities (advisory board, academic partnerships, multilingual expansion beyond EN, paper submissions, PR campaigns) into iteration-0 work. They are explicitly deferred per the launch plan.

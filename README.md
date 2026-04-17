@@ -55,12 +55,16 @@ Every track is designed to be:
 
 ## Current status
 
+Execution is staged via a lean iteration ladder rather than a single big-bang Stage-1 build – see [`docs/strategy/launch-plan.md`](docs/strategy/launch-plan.md). Iteration 0 (a 2-week, ≤€1 K beachhead test) was approved 2026-04-17.
+
 - [x] Literature review of ~40 related benchmarks and studies
 - [x] Fitness-industry landscape map (operator tiers, platform layer, AI-native vendors, economics)
 - [x] Twelve-workflow gap analysis
 - [x] Seven-track proposal with methodological principles
 - [x] Strategic positioning decision (open core + proprietary augmentation)
-- [ ] Stage 1 MVP (Tracks A + D + F) — not yet started
+- [x] Lean launch plan with iteration gates and kill criteria
+- [ ] Iteration 0 shipped (20 EN MCQs × 5 models + leaderboard + launch post + cold outreach)
+- [ ] Stage 1 MVP (Tracks A + D + F) — deferred until iteration 0–2 traction gates clear
 - [ ] Expert panel for Tracks B and F
 - [ ] Longitudinal validation with a chain client (Stage 3)
 
@@ -68,10 +72,16 @@ Every track is designed to be:
 
 All substantive content is in [`docs/`](docs/):
 
+**Research report** – the *why* behind Athlon Eval, dated 2026-04-11:
+
 - **[Landing page & executive summary](docs/fitness-llm-benchmarks-research.md)** — start here
 - **[Part I — Academic literature survey](docs/research/part-1-literature-survey.md)** — SportQA, PH-LLM, Health-LLM, JMIR scoping reviews, NutriBench, BiomechGPT, and the ~40-entry reference list
 - **[Part II — Fitness industry frame](docs/research/part-2-industry-frame.md)** — Qodeca context, chain operator tiers, platform layer, real-world LLM workflows, seven-track proposal, positioning options, risks
 - **[Part III — LLM benchmark design methodology](docs/research/part-3-benchmark-design-methodology.md)** — eight-stage benchmark lifecycle, item authoring, evaluation metrics, statistical rigor (Miller 2024 / Bowyer 2025), contamination resistance, tooling landscape (lm-eval-harness, HELM, Inspect AI, DeepEval, Promptfoo, RAGAS), governance, lessons from adjacent domains, and a 90-day Stage-1 build plan for Tracks A, D, F
+
+**Launch plan** – the *what-next* operational document:
+
+- **[Launch plan](docs/strategy/launch-plan.md)** — lean iteration ladder (Iter 0 → 0.5 → 1 → 2 → 3 → scale), iteration-0 day-by-day checklist, SME reviewer specification (Appendix B), decisions log. Supersedes the "next steps" sketches in Part II §17 and Part III §29 with iteration gates and kill criteria.
 
 For Claude Code working notes on navigating this repo, see [`CLAUDE.md`](CLAUDE.md).
 
