@@ -39,7 +39,7 @@ Athlon Eval aims to be that benchmark.
 | **F — Safety & compliance** | Red-flag detection, medical escalation, PII leakage, prompt-injection robustness | Go/no-go gate |
 | **G — Sales assist** | Objection handling, tour booking, lead qualification | Sales-assist vendors |
 
-**Positioning**: open core + proprietary augmentation. Tracks A, D, F are planned for public release under a permissive licence; Tracks B, C, E, G as proprietary extensions used inside Qodeca delivery engagements. This mirrors how MLPerf, HELM, and DeepEval manage the academic/commercial boundary.
+**Positioning**: open core + proprietary augmentation. Tracks A, D, F are planned for public release under a copyleft licence (GPL v3); Tracks B, C, E, G as proprietary extensions used inside Qodeca delivery engagements. This mirrors how MLPerf, HELM, and DeepEval manage the academic/commercial boundary.
 
 ## Cross-cutting requirements
 
@@ -87,7 +87,7 @@ For Claude Code working notes on navigating this repo, see [`CLAUDE.md`](CLAUDE.
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE). This repository contains the public research and planning artefacts for Athlon Eval, released under a permissive licence in line with the open-core positioning in Part II Chapter 16. Any proprietary track extensions (B, C, E, G) will be developed as separate artefacts inside Qodeca delivery engagements, outside this repository.
+GPL v3 (GPL-3.0-only) — see [LICENSE](LICENSE). This repository contains the public research and planning artefacts for Athlon Eval, released under a copyleft licence (GPL v3) in line with the open-core positioning in Part II Chapter 16. Any proprietary track extensions (B, C, E, G) will be developed as separate artefacts inside Qodeca delivery engagements, outside this repository.
 
 ## Contact
 
